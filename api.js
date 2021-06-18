@@ -15,6 +15,9 @@ var Product = sequelize.define('product', {
 
 
 app.use(bodyParser.json());
+app.get("/", (req, res, next)=>{
+    res.send("hello heroku");
+})
 app.get('/products', (req, res, next) => {
     Product.findAll().then(products => {
         res.send(products).status(200);
