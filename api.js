@@ -3,6 +3,8 @@ const express = require('express');
 const bodyParser = require("body-parser");
 var Sequelize = require('sequelize');
 
+let port = process.env.PORT || 3000
+
 
 const app = express();
 
@@ -21,7 +23,7 @@ app.get('/products', (req, res, next) => {
     })
 });
 
-app.listen(3300, ()=>{
+app.listen(port, ()=>{
     console.log("Sever is now listening at port 3300");
 });
 
