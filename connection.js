@@ -20,7 +20,9 @@ const sequelize = new Sequelize(
         host: 'ec2-23-23-128-222.compute-1.amazonaws.com',
         ssl: true,
         dialectOptions: {
-            ssl: true
+            ssl: {
+                rejectUnauthorized: false, // very important
+              }
         }
     },
 );
