@@ -33,8 +33,6 @@ app.listen(port, ()=>{
     console.log("Sever is now listening at port 3300");
 });
 
-sequelize.sync().then(function(jane) {
-    console.log(jane.get({
-      plain: true
-    }));
+sequelize.sync().then(() => {
+    console.log("Synchronisation succeeded");
 }).catch(err => console.log(err));
