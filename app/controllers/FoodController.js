@@ -1,6 +1,6 @@
 const Food = require('../models/Food');
 
-exports.addProduct = (req, res, next) => {
+exports.addFood = (req, res, next) => {
     const name = req.body.title;
     const imageUrl = req.body.imageUrl;
     const price = req.body.price;
