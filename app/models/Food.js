@@ -9,7 +9,10 @@ const Food = sequelize.define('food', {
     allowNull: false,
     primaryKey: true
   },
-  name: Sequelize.STRING,
+  name: {
+    type: Sequelize.STRING,
+    allowNull: false
+  },
   price: {
     type: Sequelize.DOUBLE,
     allowNull: false
