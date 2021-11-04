@@ -4,6 +4,7 @@ const express = require('express');
 const bodyParser = require("body-parser");
 var Sequelize = require('sequelize');
 const FoodRoutes = require('./app/routes/FoodRoutes');
+const Food = require('./app/models/Food');
 
 let port = process.env.PORT || 3000
 
@@ -35,4 +36,17 @@ app.listen(port, ()=>{
 
 sequelize.sync().then(() => {
     console.log("Synchronisation succeeded");
+    Food.create({
+        name: "food test",
+        price: 1000,
+        imageUrl: "No image test",
+        description: "description test",
+    }).then(result => {
+        // console.log(result);
+        res.send("ADD SUCCESS");
+        console.log('Created Product');
+      })
+      .catch(err => {
+        console.log(err);
+    });
 }).catch(err => console.log(err));
