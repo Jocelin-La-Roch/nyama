@@ -13,7 +13,7 @@ exports.addFood = (req, res, next) => {
         description: description,
     }).then(result => {
         // console.log(result);
-        res.send("ADD SUCCESS");
+        res.send("ADD SUCCESS !!!");
         console.log('Created Product');
       })
       .catch(err => {
