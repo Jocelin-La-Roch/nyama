@@ -43,8 +43,7 @@ sequelize.sync().then(() => {
         description: "description test",
     }).then(result => {
         // console.log(result);
-        res.send("ADD SUCCESS");
-        console.log('Created Product');
+        console.log('Test Food Created');
       })
       .catch(err => {
         console.log(err);
