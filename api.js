@@ -18,6 +18,7 @@ const app = express();
 
 
 app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended: true, limit: '50mb'}));
 app.use(FoodRoutes);
 app.get("/", (req, res, next)=>{
     res.send("hello heroku");
