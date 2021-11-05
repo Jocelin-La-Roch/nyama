@@ -2,24 +2,12 @@ const Sequelize = require('sequelize');
 
 const sequelize = require('../utils/database');
 
-const User = sequelize.define('user', {
+const FavoriteFood = sequelize.define('favorite_food', {
   id: {
     type: Sequelize.INTEGER,
     autoIncrement: true,
     allowNull: false,
     primaryKey: true
-  },
-  name: {
-    type: Sequelize.STRING,
-    allowNull: false
-  },
-  email: {
-    type: Sequelize.STRING,
-    allowNull: false
-  },
-  phone: {
-    type: Sequelize.STRING,
-    allowNull: false
   },
   reference: {
     type: Sequelize.STRING,
@@ -28,4 +16,4 @@ const User = sequelize.define('user', {
   },
 });
 
-module.exports = User;
+module.exports = FavoriteFood;

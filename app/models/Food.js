@@ -2,7 +2,7 @@ const Sequelize = require('sequelize');
 
 const sequelize = require('../utils/database');
 
-const Food = sequelize.define('foods', {
+const Food = sequelize.define('food', {
   id: {
     type: Sequelize.INTEGER,
     autoIncrement: true,
@@ -13,17 +13,23 @@ const Food = sequelize.define('foods', {
     type: Sequelize.STRING,
     allowNull: false
   },
+  reference: {
+    type: Sequelize.STRING,
+    allowNull: false,
+    unique: true
+  },
   price: {
     type: Sequelize.DOUBLE,
-    allowNull: false
-  },
-  imageUrl: {
-    type: Sequelize.STRING,
     allowNull: false
   },
   description: {
     type: Sequelize.STRING,
     allowNull: false
+  },
+  onTheMenu: {
+    type: Sequelize.BOOLEAN,
+    allowNull: false,
+    default: true
   }
 });
 

@@ -2,30 +2,26 @@ const Sequelize = require('sequelize');
 
 const sequelize = require('../utils/database');
 
-const User = sequelize.define('user', {
+const ImageRestautant = sequelize.define('image_restaurant', {
   id: {
     type: Sequelize.INTEGER,
     autoIncrement: true,
     allowNull: false,
     primaryKey: true
   },
-  name: {
-    type: Sequelize.STRING,
-    allowNull: false
-  },
-  email: {
-    type: Sequelize.STRING,
-    allowNull: false
-  },
-  phone: {
-    type: Sequelize.STRING,
-    allowNull: false
-  },
   reference: {
     type: Sequelize.STRING,
     allowNull: false,
     unique: true
   },
+  format: {
+    type: Sequelize.STRING,
+    allowNull: false
+  },
+  url: {
+    type: Sequelize.STRING,
+    allowNull: false
+  }
 });
 
-module.exports = User;
+module.exports = ImageRestautant;
