@@ -1,4 +1,4 @@
-import * as http from 'http';
+const http = require('http');
 const sequelize = require('./app/utils/database');
 const { Routes } = require('./app/routes');
 const express = require('express');
