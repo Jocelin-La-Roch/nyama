@@ -1,6 +1,4 @@
-const http = require('http');
 const sequelize = require('./app/utils/database');
-const { Routes } = require('./app/routes');
 const express = require('express');
 const bodyParser = require("body-parser");
 var Sequelize = require('sequelize');
@@ -21,6 +19,22 @@ const StarFood = require('./app/models/StarFood');
 const StarRestaurant = require('./app/models/StarRestaurant');
 const User = require('./app/models/User');
 
+const CategoryRoutes = require('./app/routes/CategoryRoutes');
+const CommentFoodRoutes = require('./app/routes/CommentFoodRoutes');
+const CommentRestaurantRoutes = require('./app/routes/CommentRestaurantRoutes');
+const FavoriteFoodRoutes = require('./app/routes/FavoriteFoodRoutes');
+const FavoriteRestaurantRoutes = require('./app/routes/FavoritesRestaurantRoutes');
+const FoodRoutes = require('./app/routes/FoodRoutes');
+const ImageFoodRoutes = require('./app/routes/ImageFoodRoutes');
+const ImageRestaurantRoutes = require('./app/routes/ImageRestaurantRoutes');
+const ImageUserRoutes = require('./app/routes/ImageUserRoutes');
+const OrderRoutes = require('./app/routes/OrderRoutes');
+const ReservationRoutes = require('./app/routes/ReservationRoutes');
+const RestaurantRoutes = require('./app/routes/RestaurantRoutes');
+const StarFoodRoutes = require('./app/routes/StarFoodRoutes');
+const StarRestaurantRoutes = require('./app/routes/StarRestaurantRoutes');
+const UserRoutes = require('./app/routes/UserRoutes');
+
 console.log('.');
 let port = process.env.PORT || 3000
 
@@ -30,13 +44,30 @@ const app = express();
 app.use(bodyParser.json());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true, limit: '50mb'}));
+app.use(cookieParser());
+app.use(helmet());
+app.use(cors());
 
-console.log('...');
-Routes.init(app);
+app.use("/", (req, res, next)=>{
+    res.send("hello heroku");
+});
+app.use(CategoryRoutes);
+app.use(CommentFoodRoutes);
+app.use(CommentRestaurantRoutes);
+app.use(FavoriteFoodRoutes);
+app.use(FavoriteRestaurantRoutes);
+app.use(FoodRoutes);
+app.use(ImageFoodRoutes);
+app.use(ImageRestaurantRoutes);
+app.use(ImageUserRoutes);
+app.use(OrderRoutes);
+app.use(ReservationRoutes);
+app.use(RestaurantRoutes);
+app.use(StarFoodRoutes);
+app.use(StarRestaurantRoutes);
+app.use(UserRoutes);
 
-const server = http.createServer(app);
-
-server.listen(port, ()=>{
+app.listen(port, ()=>{
     console.log(`Server started - ${port}`);
 });
 

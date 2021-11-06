@@ -3,6 +3,6 @@ const FoodController = require('../controllers/CategoryController');
 
 const router = express.Router();
 
-router.post('/add-image-food', ()=>{});
+router.post('/add-star-food', ()=>{});
 
 module.exports = router;
