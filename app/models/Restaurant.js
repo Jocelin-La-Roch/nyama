@@ -65,6 +65,14 @@ const Restaurant = sequelize.define('restaurant', {
   description: {
     type: Sequelize.STRING,
     allowNull: false
+  },
+  latitude: {
+    type: Sequelize.STRING,
+    allowNull: false
+  },
+  longitude: {
+    type: Sequelize.STRING,
+    allowNull: false
   }
 });
 
