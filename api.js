@@ -2,6 +2,9 @@ const sequelize = require('./app/utils/database');
 const express = require('express');
 const bodyParser = require("body-parser");
 var Sequelize = require('sequelize');
+const cors = require('cors');
+const helmet = require('helmet');
+const cookieParser = require('cookie-parser');
 
 const Category = require('./app/models/Category');
 const CommentFood = require('./app/models/CommentFood');
