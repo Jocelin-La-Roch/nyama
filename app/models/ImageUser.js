@@ -2,7 +2,7 @@ const Sequelize = require('sequelize');
 
 const sequelize = require('../utils/database');
 
-const ImageUser = sequelize.define('image_food', {
+const ImageUser = sequelize.define('image_user', {
   id: {
     type: Sequelize.INTEGER,
     autoIncrement: true,
