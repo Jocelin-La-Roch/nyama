@@ -30,6 +30,10 @@ const Restaurant = sequelize.define('restaurant', {
     type: Sequelize.STRING,
     allowNull: false
   },
+  landmark: {
+    type: Sequelize.STRING,
+    allowNull: false
+  },
   email: {
     type: Sequelize.STRING,
     allowNull: false
