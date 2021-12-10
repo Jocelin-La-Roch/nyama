@@ -20,3 +20,9 @@ exports.addFood = (req, res, next) => {
         console.log(err);
     });
   };
+exports.editFood = (req, res, next) => {};
+exports.deleteFood = (req, res, next) => {};
+exports.getFood = (req, res, next) => {};
+exports.getAllFood = (req, res, next) => {};
+exports.getAllFoodByRestaurant = (req, res, next) => {};
+exports.getAllFoodByCategory = (req, res, next) => {};

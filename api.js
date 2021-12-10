@@ -74,7 +74,7 @@ app.use(ReservationRoutes);
 app.use(RestaurantRoutes);
 app.use(StarFoodRoutes);
 app.use(StarRestaurantRoutes);
-app.use(UserRoutes);
+app.use('/auth', UserRoutes);
 
 app.listen(port, ()=>{
     console.log(`Server started - ${port}`);
