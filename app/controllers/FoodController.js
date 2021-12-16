@@ -1,4 +1,5 @@
 const Food = require('../models/Food');
+const io = require('../../socket');
 
 exports.addFood = (req, res, next) => {
   console.log("title: ", req.body.name, "imageUrl: ", req.body.imageUrl, "price: ", req.body.price, "description: ", req.body.description)
@@ -12,7 +13,17 @@ exports.addFood = (req, res, next) => {
         imageUrl: imageUrl,
         description: description,
     }).then(result => {
-        // console.log(result);
+        console.log(result);
+        io.getIO().emit(
+            'users',
+            {
+                action: 'create',
+                user: {
+                    id: 128,
+                    name: req.body.name,
+                }
+            }
+        )
         res.send("ADD SUCCESS");
         console.log('Created Product');
       })

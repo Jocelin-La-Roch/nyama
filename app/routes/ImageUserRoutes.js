@@ -1,8 +1,10 @@
 const express = require('express');
-const FoodController = require('../controllers/CategoryController');
+const isAuth = require("../middleware/is-auth");
+const ImageUserController = require('../controllers/ImageUserController');
 
 const router = express.Router();
 
-router.post('/add-image-user', ()=>{});
+router.post('/add-image-user', isAuth, ImageUserController.editImageUser);
+router.get('/all-image-user', isAuth, ImageUserController.getAllImageUser);
 
 module.exports = router;

@@ -37,6 +37,7 @@ const RestaurantRoutes = require('./app/routes/RestaurantRoutes');
 const StarFoodRoutes = require('./app/routes/StarFoodRoutes');
 const StarRestaurantRoutes = require('./app/routes/StarRestaurantRoutes');
 const UserRoutes = require('./app/routes/UserRoutes');
+const http = require("http");
 
 console.log('.');
 let port = process.env.PORT || 3000
@@ -57,9 +58,6 @@ app.use((req, res, next) => {
     next();
 });
 
-app.use("/", (req, res, next)=>{
-    res.send("hello heroku");
-});
 app.use(CategoryRoutes);
 app.use(CommentFoodRoutes);
 app.use(CommentRestaurantRoutes);
@@ -76,7 +74,21 @@ app.use(StarFoodRoutes);
 app.use(StarRestaurantRoutes);
 app.use('/auth', UserRoutes);
 
-app.listen(port, ()=>{
+app.use("/", (req, res, next)=>{
+    res.send("hello heroku");
+});
+
+console.log('..');
+
+const server = http.createServer(app);
+const io = require('./socket').init(server);
+io.on('connection', socket => {
+    console.log("ID :", socket.id)
+    console.log("Num :", io.engine.clientsCount)
+    console.log(" ************************* Client IO Connected ********************* ");
+});
+
+server.listen(port, ()=>{
     console.log(`Server started - ${port}`);
 });
 
