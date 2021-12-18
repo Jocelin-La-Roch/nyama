@@ -142,5 +142,5 @@ ImageRestaurant.belongsTo(Restaurant, {constraint: true, onDelete: 'CASCADE'});
 Restaurant.hasMany(ImageRestaurant);
 
 sequelize.sync({force: true}).then(() => {
-    console.log("Synchronisation succeeded");
+    console.log("** SYNCHRONISATION  SUCCEEDED **");
 }).catch(err => console.log(err));

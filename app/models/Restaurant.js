@@ -18,6 +18,10 @@ const Restaurant = sequelize.define('restaurant', {
     allowNull: false,
     unique: true
   },
+  isArchived: {
+    type: Sequelize.BOOLEAN,
+    allowNull: false,
+  },
   region: {
     type: Sequelize.STRING,
     allowNull: false
