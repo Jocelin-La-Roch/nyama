@@ -1,6 +1,7 @@
 const User = require('../models/User');
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
+const io = require("../../socket");
 
 exports.signup = (req, res, next) => {
     if(!req.body.name || !req.body.email || !req.body.phone || !req.body.password){
@@ -30,6 +31,13 @@ exports.signup = (req, res, next) => {
                     expiresIn: '1h'
                 }
             );
+            io.getIO().emit(
+                'new user',
+                {
+                    action: 'create',
+                    user: user
+                }
+            )
             res.status(201).send({data: user, token: token, message: "signed up"});
         }).catch(err => {
             console.log("** ERROR ", err, " **");
