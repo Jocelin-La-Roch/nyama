@@ -23,7 +23,7 @@ exports.signup = (req, res, next) => {
             const token = jwt.sign(
                 {
                     userId: user.id,
-                    email: user.email,
+                    reference: user.reference,
                 },
                 'someupersecret',
                 {
